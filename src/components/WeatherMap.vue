@@ -81,8 +81,7 @@ export default {
       // this.weather.description = data.weather[0].description;
       // this.weather.feelsLike = Math.round(data.main.feels_like);
       // this.weather.humidity = Math.round(data.main.humidity);
-
-    },
+    }
   },
 };
 </script>
