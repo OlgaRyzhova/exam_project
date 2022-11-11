@@ -1,18 +1,24 @@
 <template>
   <div id="app">
+    <div class="bg_image"></div>
     <WeatherMap />
-    <router-view />
   </div>
 </template>
 
 <script>
-import WeatherMap from "./components/WeatherMap.vue";
+import WeatherMap from "./components/WeatherMap/WeatherMap";
 
 export default {
   name: "App",
   components: {
     WeatherMap,
+    // Forecast,
+    // ForecastListItem,
+    // Background,
   },
+  // computed: {
+  //   mapGetters(["weather.city"])
+  // },
 };
 </script>
 
@@ -21,23 +27,21 @@ export default {
   font-family: "Outfit", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
-  // text-align: center;
   color: #ffffff;
+  // position: relative;
+  background: url("./assets/images/sunny.jpg") no-repeat center center/cover;
+  width: auto;
+  height: 100vh;
+  top: 0;
+  left: 0;
+  z-index: -1;
 }
 
-// #app.snow {
-//   background-image: url(./assets/snow.jpg);
-// }
-// // nav {
-//   padding: 30px;
-
-//   a {
-//     font-weight: bold;
-//     color: #2c3e50;
-
-//     &.router-link-exact-active {
-//       color: #42b983;
-//     }
-//   }
-// }
+.bg_image {
+  position: absolute;
+  background: cover;
+  background: rgba(0, 0, 0, 0.1);
+  width: auto;
+  height: 100vh;
+}
 </style>

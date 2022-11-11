@@ -1,0 +1,116 @@
+@import url('https://fonts.googleapis.com/css2?family=Outfit:wght@400;700&display=swap');
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    // background-image: url(../assets/sunny.jpg);
+    font-family: 'Outfit', 'Segoe UI', 'Roboto', 'Oxygen', 'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue', sans-serif;
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+}
+
+p {
+    font-size: 25px;
+}
+
+h1 {
+    font-size: 98px;
+}
+
+.name_app{
+    padding-top: 20px;
+    margin-left: 20px;
+    text-transform: uppercase;
+}
+
+
+
+
+.search {
+    text-align: center;
+    padding: 15px;
+}
+
+.input {
+    margin-top: 30px;
+    padding: 11px 24px;
+    font-size: 19px;
+    border-radius: 25px;
+    border: 1px solid rgba(255,255,255, 0.8);
+    background: rgba(255,255,255, 0.1);
+    color: #f8f8f8;
+    &:focus{
+        outline-color: transparent;
+    }
+}
+
+::placeholder {
+    color: #f8f8f8;
+    
+}
+
+.container {
+    max-width: 700px;
+    height: auto;
+    margin: 0 auto; 
+    padding: 0 20px;
+    position: relative;
+    // top: 10%;
+    display: flex;
+    flex-direction: column;
+    // justify-content: space-between;
+}
+
+.header {
+    width: 100%;
+    margin: 20px auto;
+}
+
+.date{
+    font-size: 18px;
+}
+
+.description {
+    position: relative;
+    right: -90%;
+    top: -20%;
+    transform-origin: 0 0;
+    transform: rotate(269deg);
+}
+
+.main {
+    display: flex;
+    justify-content: space-evenly;
+    text-align: center;
+    width: 100%;
+    margin: 200px auto 100px;
+    padding: 15px;
+    border-radius: 12px;
+    background-color: rgba(255,250,250, 0.3);
+}
+
+.bold {
+    font-weight: 700;
+}
+
+@media screen and (max-width: 480px){
+    .main p{
+        font-size: 22px;
+    }
+}
+
+@media screen and (max-width: 410px){
+    .main p{
+        font-size: 18px;
+    }
+}
+
+
+
+
+
+
