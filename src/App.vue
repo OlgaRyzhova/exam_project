@@ -6,15 +6,12 @@
 </template>
 
 <script>
-import WeatherMap from "./components/WeatherMap/WeatherMap";
+import WeatherMap from "./components/WeatherMap/WeatherMap.vue";
 
 export default {
   name: "App",
   components: {
     WeatherMap,
-    // Forecast,
-    // ForecastListItem,
-    // Background,
   },
   // computed: {
   //   mapGetters(["weather.city"])

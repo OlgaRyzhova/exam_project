@@ -4,8 +4,8 @@
     <ul class="forecast">
       <li class="day" v-for="day in daily">
         <div>{{ dayOfWeek(day.time * 1000, store.weather.timezone) }}</div>
-        <strong>{{ Math.round(day.temperatureMax) }}&deg;C</strong>
-        <div>{{ Math.round(day.temperatureMin) }}&deg;C</div>
+        <strong>{{ Math.round(dailyTemp) }}&deg;C</strong>
+        <div>{{ Math.round(dailyTemp) }}&deg;C</div>
       </li>
     </ul>
   </div>
@@ -13,15 +13,18 @@
 <script>
 export default {
   name: "Forecast",
-  //   components: {
-  //     WeatherIcon,
-  //   },
   computed: {
     store() {
       return this.$store.state;
     },
     daily() {
       return this.$store.state.weather.daily.data;
+    },
+    dailyTemp() {
+      if (this.weather.list) {
+        return Math.round(this.weather.list[1].main.temp);
+      }
+      return 0;
     },
   },
   methods: {
