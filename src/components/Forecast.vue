@@ -1,64 +1,74 @@
 <template>
-  <div>
+  <div id="forecast">
     Forecast for 5 days
-    <ul class="forecast">
-      <li class="day" v-for="day in daily">
-        <div>{{ dayOfWeek(day.time * 1000, store.weather.timezone) }}</div>
-        <strong>{{ Math.round(dailyTemp) }}&deg;C</strong>
-        <div>{{ Math.round(dailyTemp) }}&deg;C</div>
-      </li>
-    </ul>
+        <div v-for="(image, index) in forecastImages" :key="index">
+            <p>{{ forecastDays[index] }}</p>
+            <p>{{ forecastWeather[index] }}°C</p>
+            <p><img :src="getUrl[index]"/></p>
+            <p>{{ forecastDetails[index] }}</p>
+        </div>
   </div>
 </template>
-
 
 <script>
 export default {
     name: "Forecast",
     props: {
-    msg: String,
-  },
-  computed: {
-    store() {
-      return this.$store.state;
+        msg: String,
     },
-    daily() {
-      return this.$store.state.weather?.daily?.data;
+    data() {
+        return {
+            forecastCount: 5,
+        }
     },
-    dailyTemp() {
-      if (this.weather.list) {
-        return Math.round(this.weather.list[1].main.temp);
+    computed: {
+       forecastDays() {
+        let days = [];
+        for (let i = 1; i <= this.forecastCount; i++) {
+            days.push(moment().add(i,'days').format("ddd"));
+        }
+      return days;
+    },
+    forecastWeather() {
+      let temperature = [];
+      for (let i = 1; i <= this.forecastCount; i++) {
+        temperature.push(Math.round(this.weather.list[i].main.temp));
       }
-      return 0;
+      return temperature;
     },
-  },
-  methods: {
-    dayOfWeek(time, zone) {
-      return moment(time).tz(zone).format("ddd");
+    forecastImages() {
+      let images = [];
+      for (let i = 1; i <= this.forecastCount; i++) {
+        images.push(this.weather.list[i].weather[0].icon);
+      }
+      return images;
     },
+    getUrl() {
+      let url = [];
+      for (let i = 0; i < this.forecastImages.length; i++) {
+       url.push('http://openweathermap.org/img/w/' + this.forecastImages[i] + '.png');
+      }
+      return url;
+    },
+    forecastDetails() {
+      let details = [];
+      for (let i = 1; i <= this.forecastCount; i++) {
+        details.push(this.weather.list[i].weather[0].main);
+      }
+      return details;
+    }
   },
+  setup() {}
 };
 </script>
 
 <style lang="scss" scoped>
-.forecast {
-  border-top: 1px solid #dedede;
-  display: flex;
-  flex-wrap: wrap;
-  margin-top: 16px;
-  padding-top: 16px;
-  li {
-    flex: 1;
-  }
-  .day {
-    font-size: 16px;
-    line-height: 1.6;
-    text-align: center;
-  }
-  .icon {
-    height: 32px;
-    margin: 0 auto;
-    width: 32px;
-  }
+#forecast {
+    font-size: 25px;
+    border-bottom: 1px solid #dedede;
+    display: flex;
+    flex-wrap: wrap;
+    margin-top: 16px;
+    padding-top: 16px;
 }
 </style>

@@ -13,22 +13,22 @@ export default {
     },
     data() {
         return {
-            backgroundImage: "clear, snow, rain",
+            backgroundImage: "clear",
         };
     },
     computed: {
         weather_img: function () {
             switch(this.currentBackground.toLowerCase()) {
                 case 'snow':
-                    return 'bg-snow';
+                    return 'bg_snow';
                 case 'rain':
-                    return 'bg-rain';
+                    return 'bg_rain';
                 case 'clouds':
-                    return 'bg-clouds';
+                    return 'bg_clouds';
                 case 'clear':
-                    return 'bg-clear';
-                default:
-                    return 'bg-default';
+                    return 'bg_clear';
+                // default:
+                //     return 'bg_default';
             }       
         }
     },
@@ -36,19 +36,25 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.bg-clear{
+.weather_img{
+    width: auto;
+    height: 98vh;
+    top: 0;
+    left: 0;
+}
+.bg_clear{
     background-image: url('../assets/images/sunny.jpg'); 
 }
-.bg-snow{
+.bg_snow{
     background-image: url('../assets/images/snow.jpeg'); 
 }
-.bg-rainy{
+.bg_rain{
     background-image: url('../assets/images/rainy.jpg'); 
 }
-.bg-clouds{
+.bg_clouds{
     background-image: url('../assets/images/cloud.jpg'); 
 }
-// .bg-default{
-//     background-image: url('../assets/images/cloud.jpg'); 
+// .bg_default{
+//     background-image: url('../assets/images/default.jpg'); 
 // }
 </style>

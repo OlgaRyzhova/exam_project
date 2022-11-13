@@ -73,7 +73,6 @@ export default {
   },
   methods: {
     fetchWeather(e) {
-      // var skycons = new Skycons({"color": "white"});
       if (e.key == "Enter") {
         fetch(
           `https://api.openweathermap.org/data/2.5/forecast?q=${this.findLocation}&cnt=5&units=metric&lang=en,ua&APPID=${this.api_key}`
@@ -128,7 +127,6 @@ export default {
       else {
         return "";
       }
-      
     },
     currentTemp() {
       if (this.weather.list) {
@@ -159,13 +157,6 @@ export default {
       }
       return 0;
     },
-    // weatherIcon() {
-    //   let i = {
-    //     'clear': require('/exam_project/src/assets/icons/sun.png'),
-    //     'clouds': require('/exam_project/src/assets/icons/clouds.png'),
-    //     'rain': require('/exam_project/src/assets/icons/rain.png')
-    //   }
-    // }
   },
 };
 </script>

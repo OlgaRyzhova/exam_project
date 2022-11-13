@@ -22,20 +22,18 @@ export default {
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;
-  // position: relative;
   background: url("./assets/images/default.jpg") no-repeat center center/cover;
   width: auto;
   height: 98vh;
   top: 0;
   left: 0;
-  z-index: -1;
 }
 
-.bg_image {
-  position: absolute;
-  background: cover;
-  background: rgba(0, 0, 0, 0.1);
-  width: auto;
-  height: 100vh;
-}
+// .bg_image {
+//   position: absolute;
+//   background: cover;
+//   background: rgba(0, 0, 0, 0.1);
+//   width: auto;
+//   height: 100vh;
+// }
 </style>
