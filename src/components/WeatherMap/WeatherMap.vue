@@ -1,5 +1,6 @@
 <template>
   <div>
+  <Background :currentBackground = currentBackground />
     <div class="name_app">weather app</div>
     <div class="search" v-on:submit.prevent="fetchWeather">
       <input
@@ -17,10 +18,14 @@
             {{ weather.city.name }}, {{ weather.city.country }}
           </p>
           <p class="date">{{ dateBuilder() }}</p>
-          <!-- <img :src="require" /> -->
         </div>
         <div class="temp">
+          <!-- <i class="marker icon yellow"></i> -->
+          <!-- <i class="weather-icon far fa-sun">{{ weatherIcon}}</i> -->
           <h1>{{ currentTemp }}&deg;C</h1>
+        </div>
+        <div>
+          <!-- <img :src="require(`../../assets/icons/${this.weather.list[0].weather[0].icon}.png`)" alt=""> -->
         </div>
         <div class="description">
           <p>{{ currentDescription }}</p>
@@ -41,13 +46,14 @@
         </div>
       </div>
 
-    <Forecast/>
+      <Forecast />
     </div>
   </div>
 </template>
 
 <script>
 import Forecast from "../Forecast.vue";
+import Background from "../Background.vue";
 
 export default {
   name: "WeatherMap",
@@ -56,6 +62,7 @@ export default {
   },
   components: {
     Forecast,
+    Background,
   },
   data() {
     return {
@@ -66,6 +73,7 @@ export default {
   },
   methods: {
     fetchWeather(e) {
+      // var skycons = new Skycons({"color": "white"});
       if (e.key == "Enter") {
         fetch(
           `https://api.openweathermap.org/data/2.5/forecast?q=${this.findLocation}&cnt=5&units=metric&lang=en,ua&APPID=${this.api_key}`
@@ -113,6 +121,15 @@ export default {
     },
   },
   computed: {
+    currentBackground() {
+      if (this.weather.list) {
+        return this.weather.list[0].weather[0].main;
+      }
+      else {
+        return "";
+      }
+      
+    },
     currentTemp() {
       if (this.weather.list) {
         return Math.round(this.weather.list[0].main.temp);
@@ -142,8 +159,15 @@ export default {
       }
       return 0;
     },
+    // weatherIcon() {
+    //   let i = {
+    //     'clear': require('/exam_project/src/assets/icons/sun.png'),
+    //     'clouds': require('/exam_project/src/assets/icons/clouds.png'),
+    //     'rain': require('/exam_project/src/assets/icons/rain.png')
+    //   }
+    // }
   },
-}
+};
 </script>
 
 <style scoped lang="scss" src="./style/style.scss"></style>

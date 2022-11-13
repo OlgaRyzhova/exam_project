@@ -13,9 +13,6 @@ export default {
   components: {
     WeatherMap,
   },
-  // computed: {
-  //   mapGetters(["weather.city"])
-  // },
 };
 </script>
 
@@ -26,9 +23,9 @@ export default {
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;
   // position: relative;
-  background: url("./assets/images/sunny.jpg") no-repeat center center/cover;
+  background: url("./assets/images/default.jpg") no-repeat center center/cover;
   width: auto;
-  height: 100vh;
+  height: 98vh;
   top: 0;
   left: 0;
   z-index: -1;

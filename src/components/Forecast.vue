@@ -1,6 +1,6 @@
 <template>
   <div>
-    Hello
+    Forecast for 5 days
     <ul class="forecast">
       <li class="day" v-for="day in daily">
         <div>{{ dayOfWeek(day.time * 1000, store.weather.timezone) }}</div>
@@ -10,15 +10,20 @@
     </ul>
   </div>
 </template>
+
+
 <script>
 export default {
-  name: "Forecast",
+    name: "Forecast",
+    props: {
+    msg: String,
+  },
   computed: {
     store() {
       return this.$store.state;
     },
     daily() {
-      return this.$store.state.weather.daily.data;
+      return this.$store.state.weather?.daily?.data;
     },
     dailyTemp() {
       if (this.weather.list) {

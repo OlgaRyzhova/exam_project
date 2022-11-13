@@ -25,6 +25,10 @@ h1 {
   text-transform: uppercase;
 }
 
+#img.clouds {
+  background-image: url("../../../assets/images/cloud.jpg");
+}
+
 .search {
   text-align: center;
   padding: 15px;
@@ -64,6 +68,13 @@ h1 {
 
 .date {
   font-size: 18px;
+}
+
+.icon {
+  width: 90px;
+  height: 90px;
+  z-index: 2;
+  background: black;
 }
 
 .description {
