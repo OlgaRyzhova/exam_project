@@ -27,8 +27,6 @@ export default {
           return "bg_img bg_clouds";
         case "clear":
           return "bg_img bg_clear";
-        // default:
-        //     return 'bg_default';
       }
     },
   },
@@ -36,7 +34,7 @@ export default {
 </script>
 
 <style scoped lang="scss">
-.bg_img {
+  .bg_img {
     position: absolute;
     top: 0;
     left: 0;
@@ -44,19 +42,20 @@ export default {
     bottom: 0;
     background-size: cover;
     background-repeat: no-repeat;
+    background-position: 100%;
     height: 100%;
     margin: 0 auto;
-}
-.bg_clear {
+  }
+  .bg_clear {
     background-image: url("../assets/images/sunny.jpg");
-}
-.bg_snow {
+  }
+  .bg_snow {
     background-image: url("../assets/images/snow.jpeg");
-}
-.bg_rain {
+  }
+  .bg_rain {
     background-image: url("../assets/images/rainy.jpg");
-}
-.bg_clouds {
+  }
+  .bg_clouds {
     background-image: url("../assets/images/cloud.jpg");
-}
+  }
 </style>

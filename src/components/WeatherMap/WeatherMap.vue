@@ -1,6 +1,6 @@
 <template>
-  <div>
-  <Background :currentBackground = currentBackground />
+  <div class="weather_app">
+    <Background :currentBackground="currentBackground" />
     <div class="name_app">weather app</div>
     <div class="search" v-on:submit.prevent="fetchWeather">
       <input
@@ -14,18 +14,11 @@
     <div class="container">
       <div class="header">
         <div v-if="weather.city" class="location">
-          <p class="country_name">
-            {{ weather.city.name }}, {{ weather.city.country }}
-          </p>
+          <p class="country_name">{{ weather.city.name }}, {{ weather.city.country }}</p>
           <p class="date">{{ dateBuilder() }}</p>
         </div>
         <div class="temp">
-          <!-- <i class="marker icon yellow"></i> -->
-          <!-- <i class="weather-icon far fa-sun">{{ weatherIcon}}</i> -->
           <h1>{{ currentTemp }}&deg;C</h1>
-        </div>
-        <div>
-          <!-- <img :src="require(`../../assets/icons/${this.weather.list[0].weather[0].icon}.png`)" alt=""> -->
         </div>
         <div class="description">
           <p>{{ currentDescription }}</p>
@@ -45,8 +38,9 @@
           <p>Wind Speed</p>
         </div>
       </div>
-
-      <Forecast :weather-data=weather />
+      <div class="forecast_container" v-if="weather.list" @click="dataSearchForecast">
+        <Forecast :weather-data="weather" />
+      </div>
     </div>
   </div>
 </template>
@@ -72,6 +66,11 @@ export default {
     };
   },
   methods: {
+    async dataSearchForecast() {
+      const res = await fetch(URL + this.searchForecast);
+      const forecast = await res.json();
+      this.forecast = forecast;
+    },
     fetchWeather(e) {
       if (e.key == "Enter") {
         fetch(
@@ -82,9 +81,6 @@ export default {
           })
           .then(this.setResults);
         this.findLocation = "";
-      }
-      else{
-        console.log("Your browser does not support geolocation API")
       }
     },
     setResults(results) {
@@ -126,8 +122,7 @@ export default {
     currentBackground() {
       if (this.weather.list) {
         return this.weather.list[0].weather[0].main;
-      }
-      else {
+      } else {
         return "";
       }
     },
