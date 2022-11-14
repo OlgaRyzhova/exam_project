@@ -1,60 +1,62 @@
 <template>
-    <div :class="weather_img"></div>
+  <div :class="weather_img"></div>
 </template>
 
 <script>
 export default {
-    name: "Background",
-    props: {
-        currentBackground: {
-            default: "",
-            type: String,
-        }
+  name: "Background",
+  props: {
+    currentBackground: {
+      default: "",
+      type: String,
     },
-    data() {
-        return {
-            backgroundImage: "clear",
-        };
+  },
+  data() {
+    return {
+      backgroundImage: "clear",
+    };
+  },
+  computed: {
+    weather_img: function () {
+      switch (this.currentBackground.toLowerCase()) {
+        case "snow":
+          return "bg_img bg_snow";
+        case "rain":
+          return "bg_img bg_rain";
+        case "clouds":
+          return "bg_img bg_clouds";
+        case "clear":
+          return "bg_img bg_clear";
+        // default:
+        //     return 'bg_default';
+      }
     },
-    computed: {
-        weather_img: function () {
-            switch(this.currentBackground.toLowerCase()) {
-                case 'snow':
-                    return 'bg_snow';
-                case 'rain':
-                    return 'bg_rain';
-                case 'clouds':
-                    return 'bg_clouds';
-                case 'clear':
-                    return 'bg_clear';
-                // default:
-                //     return 'bg_default';
-            }       
-        }
-    },
-}
+  },
+};
 </script>
 
 <style scoped lang="scss">
-.weather_img{
-    width: auto;
-    height: 98vh;
+.bg_img {
+    position: absolute;
     top: 0;
     left: 0;
+    right: 0;
+    bottom: 0;
+    background-size: cover;
+    background-repeat: no-repeat;
+    height: 100%;
+    margin: 0 auto;
 }
-.bg_clear{
-    background-image: url('../assets/images/sunny.jpg'); 
+.bg_clear {
+    background-image: url("../assets/images/sunny.jpg");
 }
-.bg_snow{
-    background-image: url('../assets/images/snow.jpeg'); 
+.bg_snow {
+    background-image: url("../assets/images/snow.jpeg");
 }
-.bg_rain{
-    background-image: url('../assets/images/rainy.jpg'); 
+.bg_rain {
+    background-image: url("../assets/images/rainy.jpg");
 }
-.bg_clouds{
-    background-image: url('../assets/images/cloud.jpg'); 
+.bg_clouds {
+    background-image: url("../assets/images/cloud.jpg");
 }
-// .bg_default{
-//     background-image: url('../assets/images/default.jpg'); 
-// }
 </style>

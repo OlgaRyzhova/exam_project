@@ -1,6 +1,5 @@
 <template>
   <div id="app">
-    <div class="bg_image"></div>
     <WeatherMap />
   </div>
 </template>
@@ -17,23 +16,23 @@ export default {
 </script>
 
 <style scoped lang="scss">
+body {
+  margin: 0;
+}
 #app {
   font-family: "Outfit", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;
-  background: url("./assets/images/default.jpg") no-repeat center center/cover;
-  width: auto;
-  height: 98vh;
+  position: absolute;
+  background: url("./assets/images/default__.jpg");
+  background-size: cover;
+  background-repeat: no-repeat;
+  height: 100%;
   top: 0;
   left: 0;
+  right: 0;
+  bottom: 0;
+  margin: 0;
 }
-
-// .bg_image {
-//   position: absolute;
-//   background: cover;
-//   background: rgba(0, 0, 0, 0.1);
-//   width: auto;
-//   height: 100vh;
-// }
 </style>

@@ -46,7 +46,7 @@
         </div>
       </div>
 
-      <Forecast />
+      <Forecast :weather-data=weather />
     </div>
   </div>
 </template>
@@ -82,6 +82,9 @@ export default {
           })
           .then(this.setResults);
         this.findLocation = "";
+      }
+      else{
+        console.log("Your browser does not support geolocation API")
       }
     },
     setResults(results) {
