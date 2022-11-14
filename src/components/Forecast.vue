@@ -1,5 +1,5 @@
 <template>
-    <id="forecast">
+    <div id="forecast">
     <p class="title">Forecast for 4 days</p>
     <div class="forecast_data">
         <div class="daily" v-for="(image, index) in forecastImages" :key="index">
@@ -8,7 +8,7 @@
             <p><img class="icon_weather" :src="getUrl[index]" /></p>
         </div>
         </div>
-    </id=>
+    </div>
 </template>
 
 <script>
