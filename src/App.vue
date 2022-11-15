@@ -5,28 +5,26 @@
 </template>
 
 <script>
-import WeatherMap from "./components/WeatherMap/WeatherMap.vue";
+import WeatherMap from './components/WeatherMap/WeatherMap.vue'
 
 export default {
-  name: "App",
+  name: 'App',
   components: {
     WeatherMap,
   },
-};
+}
 </script>
 
 <style scoped lang="scss">
 #app {
-  font-family: "Outfit", sans-serif;
+  font-family: 'Outfit', sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;
   position: absolute;
-  -webkit-background-size: 100%;
-  -moz-background-size: 100%;
-  -o-background-size: 100%;
-  background: url("./assets/images/default.jpg");
+  background: url('./assets/images/default.jpg');
   background-size: cover;
+  background-position: center;
   background-repeat: no-repeat;
   height: auto;
   top: 0;
