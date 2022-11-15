@@ -17,17 +17,18 @@ export default {
 
 <style scoped lang="scss">
 #app {
-  height: 100%;
   font-family: "Outfit", sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   color: #ffffff;
   position: absolute;
+  -webkit-background-size: 100%;
+  -moz-background-size: 100%;
+  -o-background-size: 100%;
   background: url("./assets/images/default.jpg");
   background-size: cover;
-  background-position: center;
   background-repeat: no-repeat;
-  height: 100%;
+  height: auto;
   top: 0;
   left: 0;
   right: 0;
