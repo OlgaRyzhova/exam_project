@@ -36,15 +36,18 @@ export default {
 <style scoped lang="scss">
   .bg_img {
     position: absolute;
-    top: 0;
-    left: 0;
-    right: 0;
-    bottom: 0;
+    -webkit-background-size: 100%;
+    -moz-background-size: 100%;
+    -o-background-size: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100%;
     height: 100%;
-    margin: 0 auto;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    // margin: 0 auto;
   }
   .bg_clear {
     background-image: url("../assets/images/sunny.jpg");

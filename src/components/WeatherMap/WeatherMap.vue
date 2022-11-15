@@ -15,7 +15,9 @@
     <div class="container">
       <div class="header">
         <div v-if="weather.city" class="location">
-          <p class="country_name">{{ weather.city.name }}, {{ weather.city.country }}</p>
+          <p class="country_name">
+            {{ weather.city.name }}, {{ weather.city.country }}
+          </p>
           <p class="date">{{ dateBuilder() }}</p>
         </div>
         <div class="temp">
@@ -39,7 +41,11 @@
           <p>Wind Speed</p>
         </div>
       </div>
-      <div class="forecast_container" v-if="weather.list" @click="dataSearchForecast">
+      <div
+        class="forecast_container"
+        v-if="weather.list"
+        @click="dataSearchForecast"
+      >
         <Forecast :weather-data="weather" />
       </div>
     </div>
@@ -88,12 +94,12 @@ export default {
       try {
         const mainWeather = data.weather[0].main;
         this.visible = true;
-          this.cityFound = false;
-        } catch (error) {
-          console.log(error);
-          this.cityFound = true;
-          this.visible = false;
-        }
+        this.cityFound = false;
+      } catch (error) {
+        console.log(error);
+        this.cityFound = true;
+        this.visible = false;
+      }
     },
     setResults(results) {
       this.weather = results;
