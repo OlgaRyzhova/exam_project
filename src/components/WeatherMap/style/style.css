@@ -49,6 +49,12 @@ h1 {
   color: #f8f8f8;
 }
 
+.error_city {
+  font-size: 16px;
+  margin-top: 10px;
+  color: #d8d8d8;
+}
+
 .container {
   max-width: 700px;
   height: auto;

@@ -10,6 +10,7 @@
         @keypress="fetchWeather"
         placeholder="Enter Location"
       />
+      <p class="error_city" v-if="cityFound">City is not found</p>
     </div>
     <div class="container">
       <div class="header">
@@ -63,6 +64,8 @@ export default {
       findLocation: "",
       weather: {},
       api_key: "441c85811b1cad6112e54a6e91f88d32",
+      cityFound: false,
+      visible: false,
     };
   },
   methods: {
@@ -82,6 +85,15 @@ export default {
           .then(this.setResults);
         this.findLocation = "";
       }
+      try {
+        const mainWeather = data.weather[0].main;
+        this.visible = true;
+          this.cityFound = false;
+        } catch (error) {
+          console.log(error);
+          this.cityFound = true;
+          this.visible = false;
+        }
     },
     setResults(results) {
       this.weather = results;
