@@ -36,9 +36,6 @@ export default {
 <style scoped lang="scss">
   .bg_img {
     position: absolute;
-    -webkit-background-size: 100%;
-    -moz-background-size: 100%;
-    -o-background-size: 100%;
     background-size: cover;
     background-repeat: no-repeat;
     background-position: 100%;
