@@ -39,7 +39,7 @@ export default {
   background-size: cover;
   background-repeat: no-repeat;
   background-position: center;
-  height: 100%;
+  // height: auto;
   top: 0;
   left: 0;
   right: 0;
